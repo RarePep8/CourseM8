@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.SearchManager;
 import android.content.Intent;
 import android.os.AsyncTask;
+import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
@@ -73,16 +74,11 @@ public class SearchableActivity extends AppCompatActivity {
 
             } else {
                 try {
-                    ArrayList<String> courseList = new ArrayList<>();
                     JSONArray objects = (JSONArray) new JSONTokener(response).nextValue();
-                    for( int i = 0; i < objects.length() ; i++) {
-                        JSONObject course = (JSONObject) objects.get(i);
-                        String courseStringView = course.getString("name") + "\n" + course.getString("code");
-                        courseList.add(courseStringView);
-                    }
-                    ListView simpleList = (ListView)findViewById(R.id.simpleListView);
-                    ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(currentActivity, R.layout.activity_searchable, R.id.textView, courseList);
-                    simpleList.setAdapter(arrayAdapter);
+                    Intent intent = new Intent(SearchableActivity.this, SearchedCourseList.class);
+                    intent.putExtra("jArrayOfCourses", objects.toString());
+                    startActivity(intent);
+                    finish();
                 } catch (JSONException e) {
 
                 }

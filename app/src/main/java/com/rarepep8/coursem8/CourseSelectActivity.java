@@ -11,4 +11,10 @@ public class CourseSelectActivity extends AppCompatActivity {
         setContentView(R.layout.activity_course_select);
         onSearchRequested();
     }
+
+    @Override
+    public void onResume(){
+        super.onResume();
+        onSearchRequested();
+    }
 }
