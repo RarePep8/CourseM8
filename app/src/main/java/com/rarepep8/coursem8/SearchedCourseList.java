@@ -1,6 +1,7 @@
 package com.rarepep8.coursem8;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -37,7 +38,14 @@ public class SearchedCourseList extends AppCompatActivity {
             simpleList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                    Toast.makeText(activity, "hiiiiiiiiiii", Toast.LENGTH_LONG).show();
+                    try {
+                        Intent intent = new Intent(activity, CourseDetailActivity.class);
+                        startActivity(intent);
+                        JSONObject c = (JSONObject) jArrayOfCourses.get(i);
+                        Toast.makeText(activity, c.getString("name") , Toast.LENGTH_LONG).show();
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
                 }
             });
         } catch (JSONException e) {

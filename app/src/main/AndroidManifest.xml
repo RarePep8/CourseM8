@@ -35,6 +35,7 @@
                 android:value=".SearchableActivity" />
         </activity>
         <activity android:name=".SearchedCourseList" />
+        <activity android:name=".CourseDetailActivity"></activity>
     </application>
 
 </manifest>
