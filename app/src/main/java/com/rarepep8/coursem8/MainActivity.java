@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        final Toolbar mainToolbar = (Toolbar) findViewById(R.id.toolbar);
+        // final Toolbar mainToolbar = (Toolbar) findViewById(R.id.toolbar);
         /* create a field for searching */
         //EditText searchField = new EditText(this);
         //searchField.setHint("search for course");
