@@ -2,4 +2,4 @@
 An Android app that searches and displays future course offerings at the University of Toronto (currently Scarborough campus only)
 
 ## Requirements
-- Android API 26 (probably will be changed)
+- Android API 19
