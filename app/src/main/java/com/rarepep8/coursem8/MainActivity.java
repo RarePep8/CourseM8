@@ -10,6 +10,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -36,8 +37,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
     protected void selectCourse() {
-        Intent i = new Intent(this, CourseSelectActivity.class);
-        startActivity(i);
+        onSearchRequested();
     }
 
     @Override
@@ -49,18 +49,45 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        final Toolbar mainToolbar = (Toolbar) findViewById(R.id.toolbar);
+        /* create a field for searching */
+        //EditText searchField = new EditText(this);
+        //searchField.setHint("search for course");
         switch (item.getItemId()) {
-            case R.id.action_search:
-                Intent i = new Intent(this, CourseSelectActivity.class);
-                startActivity(i);
-            case R.id.action_settings:
+            case R.id.action_search: {
+                onSearchRequested();
+
+                /* Get a support ActionBar corresponding to this toolbar */
+                //ActionBar upSupport = getSupportActionBar();
+                /* disable title */
+                //upSupport.setDisplayShowTitleEnabled(false);
+                /* Enable the Up button */
+                //upSupport.setDisplayHomeAsUpEnabled(true);
+
+                //mainToolbar.addView(searchField);
+                return true;
+            }
+            case R.id.action_settings: {
                 // User chose the "Settings" item, show the app settings UI...
                 return true;
-            default:
+            }
+            case android.R.id.home: {
+
+                /* Get a support ActionBar corresponding to this toolbar */
+                //ActionBar upSupport = getSupportActionBar();
+                /* enable title */
+                //upSupport.setDisplayShowTitleEnabled(true);
+                /* disable the Up button */
+                //upSupport.setDisplayHomeAsUpEnabled(false);
+
+                //mainToolbar.removeView(searchField);
+                return true;
+            }
+            default: {
                 // If we got here, the user's action was not recognized.
                 // Invoke the superclass to handle it.
                 return super.onOptionsItemSelected(item);
-
+            }
         }
     }
 

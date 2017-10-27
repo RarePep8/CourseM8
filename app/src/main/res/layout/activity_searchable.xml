@@ -4,6 +4,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.rarepep8.coursem8.SearchableActivity">
+    android:name="android.app.default_searchable"
+    android:parentActivityName="com.rarepep8.coursem8.MainActivity"
+    tools:context="com.rarepep8.coursem8.SearchableActivity" >
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:background="?attr/colorPrimary"
+        android:elevation="4dp"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:minHeight="?attr/actionBarSize"
+        android:title="Course M8!"
+        android:titleTextColor="@android:color/white"
+        android:titleMargin="@dimen/activity_horizontal_margin"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
 
 </android.support.constraint.ConstraintLayout>
